@@ -748,10 +748,19 @@ def save2docx_sim(data_path: str, state_dict_filename: str = 'state', json_param
             name_list.append(group_name)
         # 生成时间戳
         current_date = datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-        output_filename = os.path.join(docx_output_path, f"结果报告_{current_date}.docx")
-
+        output_filename = os.path.join(docx_output_path, f"Result Report_{current_date}.docx")
         # 分析周期准确度
-        acc_dict = gsd.analyze_period_accuracy(state_dicts['afm_dict'])
+        afm_data = {}
+        for i, item in enumerate(state_dicts['afm_dict']):
+            if isinstance(item, dict) and 'source' in item:
+                # 使用source作为键
+                source_name = item.get('source', f'result_{i}')
+                afm_data[source_name] = item
+            else:
+                afm_data[f'result_{i}'] = item
+
+        acc_dict = gsd.analyze_period_accuracy(afm_data)
+
         save_state(acc_dict,state_path=os.path.join(data_path, 'Running_Data'), filename="accuracy")
 
         # 获取准确度数据列表
@@ -811,24 +820,24 @@ def save2docx_sim(data_path: str, state_dict_filename: str = 'state', json_param
             simulate=True
         )
 if __name__ == '__main__':
-    # 对于真实数据
-    config_map="config"
-    with open(f'{config_map}.json') as f:
-        config = json.load(f)
-    save2docx(data_path=config["global"]["output_path"],
-              state_dict_filename=config["global"]["state_filename"],
-              json_params_filename='config',
-              docx_output_path=config["global"]["output_path"])
-
-    # # 对于模拟数据
-    # config_map = "config"
+    # # 对于真实数据
+    # config_map="config"
     # with open(f'{config_map}.json') as f:
     #     config = json.load(f)
-    # save2docx_sim(
-    #     data_path=config["global"]["output_path"],
-    #     title="Simulation Report",
-    #     state_dict_filename=config["global"]["state_filename"],
-    #     json_params_filename='config',
-    #     docx_output_path=config["global"]["output_path"],
-    # )
+    # save2docx(data_path=config["global"]["output_path"],
+    #           state_dict_filename=config["global"]["state_filename"],
+    #           json_params_filename='config',
+    #           docx_output_path=config["global"]["output_path"])
+
+    # 对于模拟数据
+    config_map = "config"
+    with open(f'{config_map}.json') as f:
+        config = json.load(f)
+    save2docx_sim(
+        data_path=config["global"]["output_path"],
+        title="Simulation Report",
+        state_dict_filename=config["global"]["state_filename"],
+        json_params_filename=config_map,
+        docx_output_path=config["global"]["output_path"],
+    )
 
