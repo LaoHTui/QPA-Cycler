@@ -34,7 +34,7 @@ pip install numpy pandas matplotlib scipy python-docx
 python main.py
 ```
 > [!Warning]
-> config参数设置很重要，一定要先理解其说明文档！
+> config参数设置很重要，使用时一定要先理解其说明文档！
 
 * 3.查看结果：
 分析结果会输出在config.json中你设置好的路径里，同时会生成文件夹包括
