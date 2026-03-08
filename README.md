@@ -68,6 +68,8 @@ python save2docx.py
 > [!Tip]
 > 具体说明详见[]()
 
+![光变曲线效果图](example/data/signal_examples.png)
+
 2. 在main中设置参数文件名字，并设置参数文件的源文件入口与结果输出路径
    json结构中设置
    ```bash
@@ -93,7 +95,7 @@ python main.py
 状态文件已经储存在：S:\example\result\Running_Data\state
 *************************全部源已经计算完毕,程序运行时间：1047.569 秒*************************
 ```
-6. 
+6. 在
 
 
   
