@@ -96,7 +96,7 @@ python main.py
 *************************全部源已经计算完毕,程序运行时间：1047.569 秒*************************
 ```
 ### 示例周期数据结果
-![周期数据lsp](example/rusult/1_periodic_245.71days_LSP.png)
+![周期数据lsp](example/rusult/1_periodic_245.71days_LSP.png)   
 ![周期数据wwz](example/rusult/1_periodic_245.71days-245.8128_WWZ.png)
 
 6. 在save2docx选择模拟数据板块后运行
