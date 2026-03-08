@@ -7,7 +7,7 @@ import time
 import numpy as np
 from datetime import datetime
 
-from File_operations import get_csv_data as gcd, get_txt_data as gtd
+from File_operations import get_csv_data as gcd, get_txt_data as gtd, data_numbering as dn
 import gen_final_table as gen_table
 import gen_lightcurve_plot as lightcurve
 import jurkevich as jv
@@ -70,7 +70,9 @@ def process_data(source_name, series, flux, flux_err, output_file, state, state_
             source_name,
             series,
             flux,
-            os.path.join(output_file, 'Light_Plot')
+            flux_err,
+            os.path.join(output_file, 'Light_Plot'),
+            fig_mode='save'
         )
 
     running_data_path = os.path.join(output_file, 'Running_Data')
@@ -186,6 +188,10 @@ def main(config_map):
     os.makedirs(output_path, exist_ok=True)
     running_data_path = os.path.join(output_path, 'Running_Data')
     os.makedirs(running_data_path, exist_ok=True)
+
+    # 文件标号
+    print("*********************开始文件标号*********************")
+    dn.manage_sequential_file_naming(file_type=file_type,directory=folder_path, mode='number')
 
     # 构建目标文件路径
     target_file = os.path.join(running_data_path, os.path.basename(f'{config_map}.json'))
@@ -317,7 +323,7 @@ def main(config_map):
                 if file_type == 'csv':
                     if filename.endswith('.csv') and filename not in state['processed_files']:
                         # 只处理CSV文件，并且该文件未被处理过（跳过那些在state文件中的源）
-                        source_name, julian_dates, photon_fluxes, photon_fluxes_err = gcd.get_csv_data(file_map[num], state)
+                        source_name, julian_dates, photon_fluxes, photon_fluxes_err = gcd.get_csv_data(file_map[num], state, remove_upper_limit= True)
                         if mode == 'auto':
                             afm_dict = process_data(source_name, julian_dates, photon_fluxes, photon_fluxes_err, output_path, state, state_filename,
                                      config_map)
