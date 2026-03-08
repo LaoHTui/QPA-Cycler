@@ -6,7 +6,7 @@ The purpose is to automate the cycle detection of non-uniform sampling time-seri
 
 > [!Note]
 > 中文详细使用文档：[ZH](docs/README_zh.md)  
-> Detailed explanation of algorithm principles:：[EN](algorithms/README.md)|[ZH]  
+> Detailed explanation of algorithm principles:：[EN](docs/README_algorithms.md)|[ZH](docs/README_algorithms_ZH.md)
 
 
 > [!Important]
