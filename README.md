@@ -30,4 +30,4 @@ python main.py
 *3.查看结果：
 可视化图表会自动保存至 temp_images/ 目录；
 结构化分析结果表格及 Word 文档会输出至指定路径。
-
+<span style="color: #28a745; font-weight: bold;">▌</span> 绿色竖条提示：配置文件修改后需重启程序
