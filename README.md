@@ -34,7 +34,8 @@ pip install numpy pandas matplotlib scipy python-docx
 > [!Tip]
 > 具体参数说明与用法详见[ZH](README_config_zh.md)|[EN](README_config_en.md)
 
-* 2.运行主程序：(无需任何调整，所有参数均已在上一步设置好)
+* 2.在主程序输入参数文件名字（若为config.json则无需改变）   
+  运行主程序
 ```bash
 python main.py
 ```
@@ -58,7 +59,36 @@ python save2docx.py
 > save2docx用法具体见[]()|[]()
 
 ## 使用示例
+### 这里用本工具集里内置模拟数据生成功能来举例子
+1. 设置模拟数据输出路径(本例为"S:\\example\\data")   
+   并运行 gen_sumulated_data.py
+  ```bash
+  python gen_sumulated_data.py
+  ```
+> [!Tip]
+> 具体说明详见[]()
 
+2. 在main中设置参数文件名字，并设置参数文件的源文件入口与结果输出路径
+   json结构中设置
+   ```bash
+   "folder_path" : "S:\\example\\data",   
+   "output_path" : "S:\\example\\result",
+    ```
+3. 设置全局参数文件(config.json中)
+   - 设置文件读取范围，这里设置"-1"(意为全读取)
+   - 选择模式(auto/customize) 若为auto，在auto模块中调节对应参数，若为customiz，同样在对应模块调节参数，并且自定义选择算法
+   - 设置状态文件名(默认state)
+   - 设置读取文件类型(csv/txt)
+   - 选择是否重新运行(rerun为True时，停止程序后重新开始，为False时，接着停止的源继续计算) 
+> [!Tip]
+> 参数具体说明详见[]()
+
+4. 运行main.py，等待结果
+```bash
+python main.py
+```
+
+5. 
 
 
 
