@@ -30,4 +30,12 @@ python main.py
 *3.查看结果：
 可视化图表会自动保存至 temp_images/ 目录；
 结构化分析结果表格及 Word 文档会输出至指定路径。
-<span style="color: #28a745; font-weight: bold;">▌</span> 绿色竖条提示：配置文件修改后需重启程序
+
+> [!Tip]
+> How to use BabelDOC in Zotero
+> 
+> 1. Immersive Translate Pro members can use the [immersive-translate/zotero-immersivetranslate](https://github.com/immersive-translate/zotero-immersivetranslate) plugin
+> 2. PDFMathTranslate self-deployed users can use the [guaguastandup/zotero-pdf2zh](https://github.com/guaguastandup/zotero-pdf2zh) plugin
+
+### Supported Language
+[Supported Language](https://xxx.com/supported-language)
