@@ -1,22 +1,23 @@
 # QPA-Cycler
-QPA-Cycler全称Quasi-Periodic Analysis - Cycler（准周期循环分析程序）,Cycler表示循环检测与自动化流程。  
-QPA-Cycler是一套面向时序数据周期分析的 Python 工具集，核心聚焦非均匀采样时序数据（如天文领域光变曲线）的周期检测，整合了多种经典周期分析算法，提供 **「数据读取→数据预处理→模式选择→算法分析→结果可视化→计算结果文档导出」** 全流程能力。目的旨在自动化处理非均匀采样时序数据（如天文领域光变曲线）的周期检测,并得到可靠候选源。
+QPA Cycler, also known as Quasi Periodic Analysis Cycler, stands for Cycle Detection and Automation Process.   
+QPA Cycler is a Python toolkit for periodic analysis of time-series data, with a core focus on period detection of non-uniform sampled time-series data (such as astronomical light curves). It integrates multiple classic period analysis algorithms and provides the full process capability of  
+**"data reading → data preprocessing → mode selection → algorithm analysis → result visualization → calculation result document export"**.   
+The purpose is to automate the cycle detection of non-uniform sampling time-series data and obtain reliable candidate sources.
 
 > [!Note]
-> 📖 中文详细使用文档：[中文文档](docs/README_zh.md)  
-> 📝 算法原理详解：[算法文档](algorithms/README.md)  
-> 💡 示例代码演示：[示例说明](examples/README.md)  
+> 中文详细使用文档：[ZH](docs/README_zh.md)  
+> Detailed explanation of algorithm principles:：[EN](algorithms/README.md)|[ZH]  
 
 
 > [!Important]
-> ## 功能特性
-> 1.**多算法支持**：集成 DCF、Jurkevich、Lomb-Scargle、WWZ、谐波分析等经典周期检测算法；  
-> 2.**高自由度分析**：通过对源文件编号实现多个/多端读取，参数直观可调；  
-> 3.**防崩溃备份**：程序每隔1分钟会生成分析结果数据备份，且程序可通过读取状态文件从中断处继续运行；  
-> 4.**可视化能力**：一键生成光变曲线、周期分析结果图表；  
-> 5.**结果导出**：支持将分析结果整理为结构化表格并导出为 Word 文档；  
-> 6.**灵活数据处理**：支持 CSV/TXT 格式时序数据读取，内置模拟数据生成功能；  
-> 7.**数据预处理**：提供自动滤波方法，提升周期检测精度。  
+> ## ##Functional characteristics
+> 1. * * Multi algorithm support * *: Integrated classic cycle detection algorithms such as DCF, Jurkevich, Lomb Scargle, WWZ, harmonic analysis, etc;   
+> 2. * * High degree of freedom analysis * *: Multiple/multi terminal reading is achieved by numbering the source files, and the parameters are intuitively adjustable;   
+> 3. * * Anti crash backup * *: The program generates a backup of the analysis result data every minute, and the program can continue running from the interrupt by reading the status file;   
+> 4. Visualization ability: One click generation of light curve and periodic analysis result charts;   
+> 5. * * Result Export * *: Supports organizing analysis results into structured tables and exporting them as Word documents;   
+> 6. * * Flexible data processing * *: Supports CSV/TXT format time-series data reading, with built-in analog data generation function;   
+>7 . * * Data Preprocessing * *: Provides automatic filtering methods to improve cycle detection accuracy.   
 
 ## 快速开始
 ### 环境依赖
