@@ -73,7 +73,10 @@ def generate_positive_signal(length=1000, noise_level=0.5, signal_type='random',
     # 生成测量误差 (Fermi卫星模型)
     # 典型Fermi源：通量1e-7 ph/cm²/s 对应约100光子/月
     count_rate = values * 1e7  # 缩放因子使数值合理
-    photon_counts = np.random.poisson(count_rate * exposure * time_step / len(time))
+    lam = count_rate * exposure * time_step / len(time)
+    # 用np.clip裁剪数组：下限0，上限1e18（兼容标量/数组）
+    lam_clipped = np.clip(lam, 0, 1e8)
+    photon_counts = np.random.poisson(lam_clipped)
 
     # 精确Fermi误差模型
     with np.errstate(divide='ignore', invalid='ignore'):
@@ -699,8 +702,8 @@ def get_accuracy_datalist(analysis: dict) -> dict:
 if __name__ == "__main__":
     # 设置合理的参数
     output_dir = generate_and_save_dataset(
-        output_dir=r"S:\QPA_simulate",
-        num_random_type=2,# 每类生成5个样本（测试用）
+        output_dir=r"S:\exmaple",
+        num_random_type=2,# 每类生成样本个数（测试用）
         num_periodic_type=2,
         num_quasi_periodic_type=2,
         length=500,  # 每个样本数据点
@@ -709,7 +712,7 @@ if __name__ == "__main__":
         freq_variation=0.1,  # 准周期频率变化强度
         missing_rate=0.01,  # 缺失率
         baseline_error=0.1,  # 基线误差
-        time_start=54682.0,  # Fermi起始时间
+        time_start=54682.0,  # 起始时间
         time_step=30,   # 时间步长
         period_min=130.0,  # 最小周期
         period_max=1500.0  # 最大周期
