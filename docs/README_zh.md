@@ -1,4 +1,7 @@
 # QPA-Cycler
+
+## Automated Multi-method Quasi-Periodicity Detection Pipeline
+
 QPA-Cycler全称Quasi-Periodic Analysis - Cycler（准周期循环分析程序）,Cycler表示循环检测与自动化流程。  
 QPA-Cycler是一套面向时序数据周期分析的 Python 工具集，核心聚焦非均匀采样时序数据（如天文领域光变曲线）的周期检测，整合了多种经典周期分析算法，提供 **「数据读取→数据预处理→模式选择→算法分析→结果可视化→计算结果文档导出」** 全流程能力。目的旨在自动化处理非均匀采样时序数据（如天文领域光变曲线）的周期检测,并得到可靠候选源。
 
