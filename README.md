@@ -10,7 +10,10 @@ The purpose is to automate the cycle detection of non-uniform sampling time-seri
 > [!Note]
 > 中文详细使用文档：[ZH](docs/README_zh.md)  
 > Detailed explanation of algorithm principles: [ZH](docs/README_algorithms_ZH.md)
-> 源文件格式/输入数据要求与说明：[ZH](docs/README_getdata_ZH.md)|[EN](docs/README_getdata_en.md)
+> Source file format/input data requirements and instructions:[ZH](docs/README_getdata_ZH.md)|[EN](docs/README_getdata_en.md)
+> Save2docx documentation:[ZH](docs/README_save2docx.md)|[EN](docs/README_save2docx_en.md)    
+> Parameter description and usage:[ZH](docs/README_config_zh.md)|[EN](docs/README_config.md)
+> Simulation data generation instructions:[ZH](docs/README_simulate_ZH.md)|[EN](docs/README_simulate_EN.md)  
 
 > [!Important]
 > ## Functional characteristics
@@ -72,7 +75,8 @@ And run gen_Sumulated_data.py
   python gen_sumulated_data.py
   ```
 > [!Tip]
-> For specific instructions, please refer to [] ()
+> For specific instructions, please refer to [ZH](docs/README_simulate_ZH.md)|[EN](docs/README_simulate_EN.md)  
+
 
 ![Light curve rendering](example/data/signal_examples.png)
 
