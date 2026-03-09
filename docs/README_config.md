@@ -1,704 +1,707 @@
-# QPA-Cycler参数文件介绍
+# README_config_en.md
 
 ### `gen_light_plot`
 
-- **类型**：布尔值
+- **Type**: Boolean
 
-- **默认值**：`false`
+- **Default value**: `false`
 
-- **说明**：控制是否生成轻量化光变曲线图表，设置为`true`时会生成简化版的可视化图表，`false`则不生成。
+- **Description**: Controls whether to generate a lightweight light curve plot. When set to `true`, a simplified visualization chart will be generated; when set to `false`, no chart will be generated.
 
-### `gen_result_table`（旧版，不建议使用）
+### `gen_result_table` (Old version, not recommended)
 
-- **类型**：对象
+- **Type**: Object
 
-- **说明**：控制结果表格的生成配置，包含以下子参数：
+- **Description**: Controls the generation configuration of the result table, including the following sub-parameters:
 
     - `plot`
 
-        - **类型**：布尔值
+        - **Type**: Boolean
 
-        - **默认值**：`false`
+        - **Default value**: `false`
 
-        - **说明**：控制是否输出结果表格，`true`表示生成，`false`表示不生成。且若为true，则不会运行计算程序，生成表格后直接结束程序
+        - **Description**: Controls whether to output the result table. `true` means generate, `false` means not generate. And if it is true, the calculation program will not run, and the program will end directly after generating the table.
 
     - `quantity`
 
-        - **类型**：整数
+        - **Type**: Integer
 
-        - **默认值**：`15`
+        - **Default value**: `15`
 
-        - **说明**：设置结果表格中每页展示的数据条目数量，即最多展示 15 条结果数据。
+        - **Description**: Sets the number of data entries displayed per page in the result table, that is, a maximum of 15 result data will be displayed.
 
-## `global` 全局配置
+## `global` Global Configuration
 
 ### `mode`
 
-- **类型**：字符串
+- **Type**: String
 
-- **默认值**：`"auto"`
+- **Default value**: `"auto"`
 
-- **说明**：设置运行模式，可选值为`"auto"`（自动模式）或`"customize"`（自定义模式），自动模式下会使用`auto`配置项中的参数，自定义模式则使用`customize`配置项的参数。
-  
+- **Description**: Sets the running mode. The optional values are `"auto"` (auto mode) or `"customize"` (custom mode). In auto mode, the parameters in the `auto` configuration item will be used; in custom mode, the parameters in the `customize` configuration item will be used.
+
 > [!Tip]
-> auto使用的是我提出的PVP算法(见[算法说明文档](README_algorithms_ZH.md)),效果仁者见仁智者见智。
+> The auto mode uses the PVP algorithm proposed by me (see [Algorithm Description Document](README_algorithms_ZH.md)), and the effect varies from person to person.
+> 
+> 
 
 ### `file_numbers`
 
-- **类型**：整数
+- **Type**: Integer
 
-- **默认值**：`-1`
+- **Default value**: `-1`
 
-- **说明**：设置处理的文件数量，`-1`表示处理所有符合条件的文件，设置为正整数时则仅处理指定编号的文件。比如"1-30"为处理1-30编号的文件（包括），"1,5,9"为处理编号为1，5，9三个文件。
+- **Description**: Sets the number of files to process. `-1` means process all eligible files; when set to a positive integer, only the files with the specified numbers will be processed. For example, "1-30" means process files numbered 1 to 30 (inclusive), and "1,5,9" means process the three files numbered 1, 5, and 9.
 
 ### `rerun`
 
-- **类型**：布尔值
+- **Type**: Boolean
 
-- **默认值**：`false`
+- **Default value**: `false`
 
-- **说明**：控制是否重新运行任务，`true`表示忽略之前的运行状态，重新执行所有处理步骤，`false`则会基于之前的状态继续执行或跳过已完成的步骤。
+- **Description**: Controls whether to re-run the task. `true` means ignore the previous running state and re-execute all processing steps; `false` means continue execution based on the previous state or skip completed steps.
 
 ### `folder_path`
 
-- **类型**：字符串
+- **Type**: String
 
-- **默认值**：`"S:\\example\\data"`
+- **Default value**: `"S:\\example\\data"`
 
-- **说明**：指定输入数据文件的存储路径，程序会从该路径读取需要处理的数据文件。
+- **Description**: Specifies the storage path of the input data files. The program will read the data files to be processed from this path.
 
 ### `output_path`
 
-- **类型**：字符串
+- **Type**: String
 
-- **默认值**：`"S:\\example\\result"`
+- **Default value**: `"S:\\example\\result"`
 
-- **说明**：指定处理结果的输出路径，程序会将所有生成的结果文件保存到该路径下。
+- **Description**: Specifies the output path of the processing results. The program will save all generated result files to this path.
 
 ### `state_filename`
 
-- **类型**：字符串
+- **Type**: String
 
-- **默认值**：`"state"`
+- **Default value**: `"state"`
 
-- **说明**：指定运行状态文件的名称，程序会使用该文件记录任务的运行状态，用于断点续跑等功能。
+- **Description**: Specifies the name of the running state file. The program will use this file to record the running state of the task, which is used for functions such as breakpoint resumption.
 
 ### `file_type`
 
-- **类型**：字符串
+- **Type**: String
 
-- **默认值**：`"txt"`
+- **Default value**: `"txt"`
 
-- **说明**：指定输入数据文件的类型，目前支持`"txt"`/`"csv"`格式的文本数据文件。
+- **Description**: Specifies the type of input data files. Currently, text data files in `"txt"`/`"csv"` format are supported.
 
 > [!Note]
-> 输出数据格式详见[]()。 
+> See  for the output data format.
+> 
+> 
 
-## `customize` 自定义配置
+## `customize` Custom Configuration
 
-### 算法开关参数
+### Algorithm Switch Parameters
 
-这些参数控制是否启用对应的算法功能：
+These parameters control whether to enable the corresponding algorithm functions:
 
 - `DCF`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`false`
+    - **Default value**: `false`
 
-    - **说明**：控制是否启用 DCF（Discrete Correlation Function）算法。
+    - **Description**: Controls whether to enable the DCF (Discrete Correlation Function) algorithm.
 
 - `DCF_Plot`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：控制是否生成 DCF 算法的可视化图表。
+    - **Description**: Controls whether to generate a visualization chart for the DCF algorithm.
 
 - `Jurkevich`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`false`
+    - **Default value**: `false`
 
-    - **说明**：控制是否启用 Jurkevich 算法。
+    - **Description**: Controls whether to enable the Jurkevich algorithm.
 
 - `JV_Plot`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：控制是否生成 Jurkevich 算法的可视化图表。
+    - **Description**: Controls whether to generate a visualization chart for the Jurkevich algorithm.
 
 - `LSP`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`false`
+    - **Default value**: `false`
 
-    - **说明**：控制是否启用 LSP（Lomb-Scargle Periodogram）算法。
+    - **Description**: Controls whether to enable the LSP (Lomb-Scargle Periodogram) algorithm.
 
 - `LSP_Plot`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：控制是否生成 LSP 算法的可视化图表。
+    - **Description**: Controls whether to generate a visualization chart for the LSP algorithm.
 
 - `WWZ`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：控制是否启用 WWZ（Weighted Wavelet Z-transform）算法。
+    - **Description**: Controls whether to enable the WWZ (Weighted Wavelet Z-transform) algorithm.
 
 - `WWZ_Plot`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：控制是否生成 WWZ 算法的可视化图表。
+    - **Description**: Controls whether to generate a visualization chart for the WWZ algorithm.
 
-### `jv_params` Jurkevich 算法参数
+### `jv_params` Jurkevich Algorithm Parameters
 
 - `test_periods_start`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`100`
+    - **Default value**: `100`
 
-    - **说明**：设置 Jurkevich 算法测试周期的起始值。
+    - **Description**: Sets the start value of the test period for the Jurkevich algorithm.
 
 - `test_periods_end`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`3000`
+    - **Default value**: `3000`
 
-    - **说明**：设置 Jurkevich 算法测试周期的结束值。
+    - **Description**: Sets the end value of the test period for the Jurkevich algorithm.
 
 - `test_periods_step`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10`
+    - **Default value**: `10`
 
-    - **说明**：设置 Jurkevich 算法测试周期的步长，即每次周期增加的数值。
+    - **Description**: Sets the step size of the test period for the Jurkevich algorithm, that is, the value by which the period increases each time.
 
 - `m_bins`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`2`
+    - **Default value**: `2`
 
-    - **说明**：设置 Jurkevich 算法中的分箱数量。
+    - **Description**: Sets the number of bins in the Jurkevich algorithm.
 
-### `dcf_params` DCF 算法参数
+### `dcf_params` DCF Algorithm Parameters
 
 - `delta_tau`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`30`
+    - **Default value**: `30`
 
-    - **说明**：设置 DCF 算法中的时间延迟增量。
+    - **Description**: Sets the time delay increment in the DCF algorithm.
 
 - `c`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`40`
+    - **Default value**: `40`
 
-    - **说明**：设置 DCF 算法的平滑参数。
+    - **Description**: Sets the smoothing parameter of the DCF algorithm.
 
 - `max_tau`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`3000`
+    - **Default value**: `3000`
 
-    - **说明**：设置 DCF 算法的最大时间延迟值。
+    - **Description**: Sets the maximum time delay value of the DCF algorithm.
 
 - `normalize`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：控制是否对 DCF 算法的结果进行归一化处理。
+    - **Description**: Controls whether to normalize the results of the DCF algorithm.
 
 - `height`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.20`
+    - **Default value**: `0.20`
 
-    - **说明**：设置对DCF算法结果寻峰算法中峰值的高度阈值。
+    - **Description**: Sets the height threshold of the peak in the peak-finding algorithm for the DCF algorithm results.
 
 - `distance`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`5`
+    - **Default value**: `5`
 
-    - **说明**：设置 DCF 算法结果寻峰算法中峰值之间的最小距离阈值。
+    - **Description**: Sets the minimum distance threshold between peaks in the peak-finding algorithm for the DCF algorithm results.
 
-### `lsp_params` LSP 算法参数
+### `lsp_params` LSP Algorithm Parameters
 
 - `M`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10000`
+    - **Default value**: `10000`
 
-    - **说明**：设置 LSP 算法中蒙特卡洛模拟次数。
+    - **Description**: Sets the number of Monte Carlo simulations in the LSP algorithm.
 
 - `n_jobs`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10`
+    - **Default value**: `10`
 
-    - **说明**：为减少运算时间，设置 LSP 算法运行时使用的并行任务数量,可以根据自己情况而定。
+    - **Description**: To reduce computation time, sets the number of parallel tasks used when running the LSP algorithm, which can be determined according to your own situation.
 
 - `multiple_freq_max`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`100`
+    - **Default value**: `100`
 
-    - **说明**：设置 LSP 算法中多频率检测的最大值。
+    - **Description**: Sets the maximum value for multi-frequency detection in the LSP algorithm.
 
 - `divide_freq_step`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10`
+    - **Default value**: `10`
 
-    - **说明**：设置 LSP 算法的频率步长分割数。
+    - **Description**: Sets the number of frequency step divisions in the LSP algorithm.
 
 - `MC`
 
-    - **类型**：字符串
+    - **Type**: String
 
-    - **默认值**：`"true"`
+    - **Default value**: `"true"`
 
-    - **说明**：控制是否在 LSP 算法中使用蒙特卡洛方法进行显著性检验，`"true"`表示启用，`"false"`表示禁用。
+    - **Description**: Controls whether to use the Monte Carlo method for significance testing in the LSP algorithm. `"true"` means enable, `"false"` means disable.
 
-### `wwz_params` WWZ 算法参数
+### `wwz_params` WWZ Algorithm Parameters
 
 - `c`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.0125`
+    - **Default value**: `0.0125`
 
-    - **说明**：设置 WWZ 算法的小波系数。
+    - **Description**: Sets the wavelet coefficient of the WWZ algorithm.
 
 - `freq_min`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.0002`
+    - **Default value**: `0.0002`
 
-    - **说明**：设置 WWZ 算法的最小检测频率。
+    - **Description**: Sets the minimum detection frequency of the WWZ algorithm.
 
 - `freq_max`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.004`
+    - **Default value**: `0.004`
 
-    - **说明**：设置 WWZ 算法的最大检测频率。
+    - **Description**: Sets the maximum detection frequency of the WWZ algorithm.
 
 - `freq_step`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.0001`
+    - **Default value**: `0.0001`
 
-    - **说明**：设置 WWZ 算法的频率步长。
+    - **Description**: Sets the frequency step size of the WWZ algorithm.
 
 - `tau_number`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`200`
+    - **Default value**: `200`
 
-    - **说明**：设置 WWZ 算法的时间延迟采样点数。
+    - **Description**: Sets the number of time delay sampling points in the WWZ algorithm.
 
 - `z_height`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`20000`
+    - **Default value**: `20000`
 
-    - **说明**：设置 WWZ 算法的 Z 值高度阈值。
+    - **Description**: Sets the Z-value height threshold of the WWZ algorithm.
 
-## `auto` 自动模式配置
+## `auto` Auto Mode Configuration
 
-### `lsp_params` 自动模式 LSP 算法参数
+### `lsp_params` Auto Mode LSP Algorithm Parameters
 
 - `M`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10000`
+    - **Default value**: `10000`
 
-    - **说明**：自动模式下 LSP 算法的蒙特卡洛模拟次数。
+    - **Description**: The number of Monte Carlo simulations for the LSP algorithm in auto mode.
 
 - `n_jobs`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10`
+    - **Default value**: `10`
 
-    - **说明**：自动模式下 LSP 算法运行时使用的并行任务数量。
+    - **Description**: The number of parallel tasks used when running the LSP algorithm in auto mode.
 
 - `multiple_freq_max`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`100`
+    - **Default value**: `100`
 
-    - **说明**：自动模式下 LSP 算法中多频率检测的最大值。
+    - **Description**: The maximum value for multi-frequency detection in the LSP algorithm in auto mode.
 
 - `divide_freq_step`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10`
+    - **Default value**: `10`
 
-    - **说明**：自动模式下 LSP 算法的频率步长分割数。
+    - **Description**: The number of frequency step divisions in the LSP algorithm in auto mode.
 
-### `lsp_filter` 自动模式 LSP 算法过滤参数
+### `lsp_filter` Auto Mode LSP Algorithm Filter Parameters
 
 - `height`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.1`
+    - **Default value**: `0.1`
 
-    - **说明**：自动模式下 LSP 算法结果的峰值高度阈值。
+    - **Description**: The peak height threshold of the LSP algorithm results in auto mode.
 
 - `min_prominence_rate`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.5`
+    - **Default value**: `0.5`
 
-    - **说明**：自动模式下 LSP 算法结果的最小突出率阈值。
+    - **Description**: The minimum prominence rate threshold of the LSP algorithm results in auto mode.
 
 - `self_harmonic`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：自动模式下是否过滤 LSP 算法结果中的自谐波。
+    - **Description**: Whether to filter self-harmonics in the LSP algorithm results in auto mode.
 
 - `reverse`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：自动模式下是否反转 LSP 算法的过滤逻辑。也就是说是保留高次的还是低次的谐波，决定了先把 “大周期” 还是 “小周期” 当作基波。为true时，最大的周期会被优先标记为 “基波”。随后，比它小的、成比例的周期会被标记为 “谐波” 并剔除。
+    - **Description**: Whether to reverse the filtering logic of the LSP algorithm in auto mode. That is, whether to retain higher-order or lower-order harmonics, which determines whether to treat the "large period" or "small period" as the fundamental wave first. When set to true, the largest period will be marked as the "fundamental wave" first. Subsequently, smaller, proportional periods will be marked as "harmonics" and eliminated.
 
 - `n_harmonics`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`2`
+    - **Default value**: `2`
 
-    - **说明**：自动模式下 LSP 算法中保留的谐波数量。
+    - **Description**: The number of harmonics retained in the LSP algorithm in auto mode.
 
 - `sigma_threshold`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`2.0`
+    - **Default value**: `2.0`
 
-    - **说明**：自动模式下 谐波判定的 sigma 阈值，用于显著性判断。
+    - **Description**: The sigma threshold for harmonic determination in auto mode, used for significance judgment.
 
 - `peak_width_factor`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.1`
+    - **Default value**: `0.1`
 
-    - **说明**：自动模式下 LSP 算法结果的峰值宽度因子。
+    - **Description**: The peak width factor of the LSP algorithm results in auto mode.
 
 - `snr_threshold`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`5.0`
+    - **Default value**: `5.0`
 
-    - **说明**：自动模式下 LSP 算法的信噪比阈值。
+    - **Description**: The signal-to-noise ratio threshold of the LSP algorithm in auto mode.
 
 - `fap_threshold`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.001`
+    - **Default value**: `0.001`
 
-    - **说明**：自动模式下 LSP 算法的虚假警报概率（FAP）阈值。
+    - **Description**: The False Alarm Probability (FAP) threshold of the LSP algorithm in auto mode.
 
-### `dcf_params` 自动模式 DCF 算法参数
+### `dcf_params` Auto Mode DCF Algorithm Parameters
 
 - `delta_tau`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`30`
+    - **Default value**: `30`
 
-    - **说明**：自动模式下 DCF 算法的时间延迟增量。
+    - **Description**: The time delay increment of the DCF algorithm in auto mode.
 
 - `c`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`40`
+    - **Default value**: `40`
 
-    - **说明**：自动模式下 DCF 算法的平滑参数。
+    - **Description**: The smoothing parameter of the DCF algorithm in auto mode.
 
 - `max_tau`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`3000`
+    - **Default value**: `3000`
 
-    - **说明**：自动模式下 DCF 算法的最大时间延迟值。
+    - **Description**: The maximum time delay value of the DCF algorithm in auto mode.
 
 - `normalize`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：自动模式下是否对 DCF 算法结果进行归一化处理。
+    - **Description**: Whether to normalize the results of the DCF algorithm in auto mode.
 
-### `dcf_filter` 自动模式 DCF 算法过滤参数
+### `dcf_filter` Auto Mode DCF Algorithm Filter Parameters
 
 - `height`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.15`
+    - **Default value**: `0.15`
 
-    - **说明**：自动模式下 DCF 算法结果的峰值高度阈值。
+    - **Description**: The peak height threshold of the DCF algorithm results in auto mode.
 
 - `prominence`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.3`
+    - **Default value**: `0.3`
 
-    - **说明**：自动模式下 DCF 算法结果的突出度阈值。
+    - **Description**: The prominence threshold of the DCF algorithm results in auto mode.
 
 - `snr_threshold`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`3.0`
+    - **Default value**: `3.0`
 
-    - **说明**：自动模式下 DCF 算法的信噪比阈值。
+    - **Description**: The signal-to-noise ratio threshold of the DCF algorithm in auto mode.
 
 - `distance_rate`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`4`
+    - **Default value**: `4`
 
-    - **说明**：自动模式下 DCF 算法结果中峰值之间的距离率阈值。
+    - **Description**: The distance rate threshold between peaks in the DCF algorithm results in auto mode.
 
 - `self_harmonic`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：自动模式下是否过滤 DCF 算法结果中的自谐波。
+    - **Description**: Whether to filter self-harmonics in the DCF algorithm results in auto mode.
 
 - `sigma_threshold`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`2.0`
+    - **Default value**: `2.0`
 
-    - **说明**：自动模式下 DCF 算法的 sigma 阈值，用于显著性判断。
+    - **Description**: The sigma threshold of the DCF algorithm in auto mode, used for significance judgment.
 
 - `reverse`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：同lsp的`reverse`。
+    - **Description**: Same as `reverse` in lsp.
 
-### `jv_params` 自动模式 Jurkevich 算法参数
+### `jv_params` Auto Mode Jurkevich Algorithm Parameters
 
 - `test_periods_start`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`100`
+    - **Default value**: `100`
 
-    - **说明**：自动模式下 Jurkevich 算法测试周期的起始值。
+    - **Description**: The start value of the test period for the Jurkevich algorithm in auto mode.
 
 - `test_periods_end`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`3000`
+    - **Default value**: `3000`
 
-    - **说明**：自动模式下 Jurkevich 算法测试周期的结束值。
+    - **Description**: The end value of the test period for the Jurkevich algorithm in auto mode.
 
 - `test_periods_step`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10`
+    - **Default value**: `10`
 
-    - **说明**：自动模式下 Jurkevich 算法测试周期的步长。
+    - **Description**: The step size of the test period for the Jurkevich algorithm in auto mode.
 
 - `m_bins`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`2`
+    - **Default value**: `2`
 
-    - **说明**：自动模式下 Jurkevich 算法的分箱数量。
+    - **Description**: The number of bins in the Jurkevich algorithm in auto mode.
 
-### `jv_filter` 自动模式 Jurkevich 算法过滤参数
+### `jv_filter` Auto Mode Jurkevich Algorithm Filter Parameters
 
 - `max_serise`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`3000`
+    - **Default value**: `3000`
 
-    - **说明**：自动模式下 Jurkevich 算法处理的最大序列长度。
+    - **Description**: The maximum sequence length processed by the Jurkevich algorithm in auto mode.
 
 - `v2_threshold`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.2`
+    - **Default value**: `0.2`
 
-    - **说明**：自动模式下 Jurkevich 算法的 V2 值阈值。
+    - **Description**: The V2 value threshold of the Jurkevich algorithm in auto mode.
 
 - `min_peak_distance`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10`
+    - **Default value**: `10`
 
-    - **说明**：自动模式下 Jurkevich 算法结果中峰值之间的最小距离阈值。
+    - **Description**: The minimum distance threshold between peaks in the Jurkevich algorithm results in auto mode.
 
 - `prominence`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.1`
+    - **Default value**: `0.1`
 
-    - **说明**：自动模式下 Jurkevich 算法结果的突出度阈值。
+    - **Description**: The prominence threshold of the Jurkevich algorithm results in auto mode.
 
 - `self_harmonic`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：自动模式下是否过滤 Jurkevich 算法结果中的自谐波。
+    - **Description**: Whether to filter self-harmonics in the Jurkevich algorithm results in auto mode.
 
 - `sigma_threshold`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`2.0`
+    - **Default value**: `2.0`
 
-    - **说明**：自动模式下 Jurkevich 算法的 sigma 阈值，用于显著性判断。
+    - **Description**: The sigma threshold of the Jurkevich algorithm in auto mode, used for significance judgment.
 
 - `reverse`
 
-    - **类型**：布尔值
+    - **Type**: Boolean
 
-    - **默认值**：`true`
+    - **Default value**: `true`
 
-    - **说明**：自动模式下是否反转 Jurkevich 算法的过滤逻辑，同。
+    - **Description**: Whether to reverse the filtering logic of the Jurkevich algorithm in auto mode, same as above.
 
-### `wwz_params` 自动模式 WWZ 算法参数
+### `wwz_params` Auto Mode WWZ Algorithm Parameters
 
 - `c`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.0125`
+    - **Default value**: `0.0125`
 
-    - **说明**：自动模式下 WWZ 算法的小波系数。
+    - **Description**: The wavelet coefficient of the WWZ algorithm in auto mode.
 
 - `scan_range`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.8`
+    - **Default value**: `0.8`
 
-    - **说明**：自动模式下 WWZ 算法的扫描范围比例。
+    - **Description**: The scan range ratio of the WWZ algorithm in auto mode.
 
 - `freq_step`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.0001`
+    - **Default value**: `0.0001`
 
-    - **说明**：自动模式下 WWZ 算法的频率步长。
+    - **Description**: The frequency step size of the WWZ algorithm in auto mode.
 
 - `tau_number`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`400`
+    - **Default value**: `400`
 
-    - **说明**：自动模式下 WWZ 算法的时间延迟采样点数。
+    - **Description**: The number of time delay sampling points in the WWZ algorithm in auto mode.
 
 - `z_height`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`20000`
+    - **Default value**: `20000`
 
-    - **说明**：自动模式下 WWZ 算法的 Z 值高度阈值。
+    - **Description**: The Z-value height threshold of the WWZ algorithm in auto mode.
 
-### `wwz_filter` 自动模式 WWZ 算法过滤参数
+### `wwz_filter` Auto Mode WWZ Algorithm Filter Parameters
 
 - `min_size`
 
-    - **类型**：整数
+    - **Type**: Integer
 
-    - **默认值**：`10`
+    - **Default value**: `10`
 
-    - **说明**：自动模式下 WWZ 算法结果中有效区域的最小尺寸。
+    - **Description**: The minimum size of the valid region in the WWZ algorithm results in auto mode.
 
 - `confidence`
 
-    - **类型**：浮点数
+    - **Type**: Float
 
-    - **默认值**：`0.99`
+    - **Default value**: `0.99`
 
-    - **说明**：自动模式下 WWZ 算法结果的置信度阈值。
+    - **Description**: The confidence threshold of the WWZ algorithm results in auto mode.
 
 - `peak_mode`
 
-    - **类型**：字符串
+    - **Type**: String
 
-    - **默认值**：`"peak"`
+    - **Default value**: `"peak"`
 
-    - **说明**：自动模式下 WWZ 算法的峰值检测模式，可选值为`"peak"`（峰值模式）。
-
+    - **Description**: The peak detection mode of the WWZ algorithm in auto mode. The optional value is `"peak"` (peak mode).
