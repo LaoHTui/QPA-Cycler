@@ -8,11 +8,11 @@ QPA Cycler is a Python toolkit for periodic analysis of time-series data, with a
 The purpose is to automate the cycle detection of non-uniform sampling time-series data and obtain reliable candidate sources.
 
 > [!Note]
-> 中文详细使用文档：[ZH](docs/README_zh.md)  
-> Detailed explanation of algorithm principles: [ZH](docs/README_algorithms_ZH.md)
-> Source file format/input data requirements and instructions:[ZH](docs/README_getdata_ZH.md)|[EN](docs/README_getdata_en.md)
-> Save2docx documentation:[ZH](docs/README_save2docx.md)|[EN](docs/README_save2docx_en.md)    
-> Parameter description and usage:[ZH](docs/README_config_zh.md)|[EN](docs/README_config.md)
+> 中文详细使用文档：[ZH](docs/README_zh.md)    
+> Detailed explanation of algorithm principles: [ZH](docs/README_algorithms_ZH.md)    
+> Source file format/input data requirements and instructions:[ZH](docs/README_getdata_ZH.md)|[EN](docs/README_getdata_en.md)     
+> Save2docx documentation:[ZH](docs/README_save2docx.md)|[EN](docs/README_save2docx_en.md)        
+> Parameter description and usage:[ZH](docs/README_config_zh.md)|[EN](docs/README_config.md)    
 > Simulation data generation instructions:[ZH](docs/README_simulate_ZH.md)|[EN](docs/README_simulate_EN.md)  
 
 > [!Important]
