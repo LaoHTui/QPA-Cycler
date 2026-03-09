@@ -10,7 +10,7 @@ The purpose is to automate the cycle detection of non-uniform sampling time-seri
 > [!Note]
 > 中文详细使用文档：[ZH](docs/README_zh.md)  
 > Detailed explanation of algorithm principles: [ZH](docs/README_algorithms_ZH.md)
-
+> 源文件格式/输入数据要求与说明：[ZH](docs/README_getdata_ZH.md)|[EN](docs/README_getdata_en.md)
 
 > [!Important]
 > ## Functional characteristics
@@ -37,7 +37,7 @@ pip install numpy pandas matplotlib scipy python-docx
 ## Basic usage process
 * 1. Configure parameter config. json `, customize data path, data format, analysis algorithm parameters, output path, etc;
 > [!Tip]
-> For specific parameter instructions and usage, please refer to [ZH](README_comfig_zh.md) | [EN] (README_comfig_n. md)
+> For specific parameter instructions and usage, please refer to [ZH](docs/README_comfig_zh.md) | [EN](docs/README_comfig.md)
 
 * 2. Enter the name of the parameter file in the main program (if it is config. json, there is no need to change it)
 Run the main program
@@ -61,7 +61,7 @@ python save2docx.py
 The program will read the status and parameter files from the analysis results and generate a Word document in the results folder
 
 > [!Note]
-> The specific usage of save2docx can be found in[]()|[]()
+> The specific usage of save2docx can be found in[ZH](docs/README_save2docx.md)|[EN](docs/README_save2docx_en.md)
 
 ## Example usage
 ### Here, we use the built-in simulation data generation function in this toolkit as an example
@@ -89,7 +89,7 @@ Setting in JSON structure
 - Set the file type for reading (csv/txt)
 - Choose whether to rerun (when rerun is True, stop the program and restart it; when it is False, continue the calculation of the stopped source)
 > [!Tip]
-> For specific parameter specifications, please refer to[]()
+> For specific parameter specifications, please refer to[ZH](docs/README_comfig_zh.md) | [EN](docs/README_comfig.md)
 
 4. Run main.by and wait for the result
   ```bash
