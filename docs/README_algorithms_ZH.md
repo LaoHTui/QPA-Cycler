@@ -85,20 +85,20 @@ $FWHM = T_{high} - T_{low}$
  
 测量不确定度估计： $\sigma_{FWHM} = \Delta T \cdot \sqrt{2}$ 
 
-## **周期性验证管道 (PVP)**
+## **周期性验证管道 (PVP)**   
 
-### 多方法一致性决策
+### 多方法一致性决策(Multi-method Consensus Decision)
 
 通过多种周期检测方法的结果进行交叉验证，只有当多种方法都检测到相同的周期信号时，才判定为存在周期性信号，提高检测的准确性。   
 
 ![一致性](images/p1.png)
 
-### 有序多方法合成策略
+### 有序多方法合成策略(Ordered Multi-method Synthesis)
 
 按照不同方法的检测性能和适用场景，有序地组合多种方法，先使用计算量较小、检测速度快的方法进行初步筛选，再使用更复杂、更准确的方法进行验证，提高检测效率和准确性。
 ![一致性](images/p3.png)
 
-### 周期性验证管道流程
+### 周期性验证管道流程(Periodicity Verification Pipeline)
 
 ![PVP](images/p2.png)
 
