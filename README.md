@@ -1,4 +1,7 @@
 # QPA-Cycler
+
+## Automated Multi-method Quasi-Periodicity Detection Pipeline
+
 QPA Cycler, also known as Quasi Periodic Analysis Cycler, stands for Cycle Detection and Automation Process.   
 QPA Cycler is a Python toolkit for periodic analysis of time-series data, with a core focus on period detection of non-uniform sampled time-series data (such as astronomical light curves). It integrates multiple classic period analysis algorithms and provides the full process capability of  
 **"data reading → data preprocessing → mode selection → algorithm analysis → result visualization → calculation result document export"**.   
