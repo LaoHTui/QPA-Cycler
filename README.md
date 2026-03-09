@@ -115,6 +115,9 @@ python save2docx.py
 ```
 Obtain comprehensive results, including program computation time, parameter list, analysis structure of each source with bookmarks, and for simulated data, additional accuracy, calculation result labels for each source, etc
 
+> [!note]   
+> Example generated document: [Document](example/result/Result-Report.pdf)
+
 ## For single method analysis, there are examples of applications in each method, and replacing the path adjustment parameters is sufficient
 
 ## Explanation
