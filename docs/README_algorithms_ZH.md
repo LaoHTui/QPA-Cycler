@@ -1,4 +1,4 @@
-# QPA-Cycler
+# QPA-Cycler算法说明
 
 ## Automated Multi-method Quasi-Periodicity Detection Pipeline
 
