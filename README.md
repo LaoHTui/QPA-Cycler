@@ -110,8 +110,10 @@ Obtain comprehensive results, including program computation time, parameter list
 
 ## For single method analysis, there are examples of applications in each method, and replacing the path adjustment parameters is sufficient
 
-##Explanation
+## Explanation
 This project is a time-series data cycle analysis tool developed during the undergraduate stage. Due to personal knowledge and experience limitations, the program and algorithm may have shortcomings and omissions, and it is not the optimal implementation.   
 Welcome interested friends to communicate, discuss, optimize and improve together.
+
+Welcome to submit Pull Requests to improve this project. If you find any bugs or have new feature requests, you can open an Issue.
 
 📧  Contact email: hczhang@my.swjtu.edu.cn
