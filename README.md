@@ -26,7 +26,7 @@
 
 ### 依赖项
 - Python 3.8 或更高版本
-- 核心库：`numpy`, `pandas`, `matplotlib`, `scipy`, `python-docx`
+- 核心库：`numpy`, `pandas`, `matplotlib`, `scipy`, `python-docx`, `PySide6`
 
 ### 安装步骤
 1. 克隆仓库：
@@ -36,7 +36,7 @@
    ```
 2. 安装依赖：
    ```bash
-   pip install numpy pandas matplotlib scipy python-docx
+   pip install numpy pandas matplotlib scipy python-docx PySide6
    ```
 
 ---
