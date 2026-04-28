@@ -70,3 +70,4 @@ def calculate_fwhm(x, y, peak_guess, resolution=  None):
         "fwhm_uncertainty": fwhm_uncertainty,
         'half_height': half_max
     }
+
