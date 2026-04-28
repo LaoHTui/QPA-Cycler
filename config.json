@@ -1,0 +1,94 @@
+{
+    "gen_light_plot": true,
+    "global": {
+        "mode": "customize",
+        "file_numbers": -1,
+        "rerun": false,
+        "folder_path": "S:/FermiData/bll/monthly",
+        "output_path": "S:/FermiData/bll/monthly/result",
+        "state_filename": "state",
+        "file_type": "csv",
+        "start_date": null,
+        "end_date": null,
+        "remove_max_value_numbers": 0,
+        "remove_upper_limit": true,
+        "selected_source_numbers": [],
+        "export_docx": true,
+        "use_selected_source_numbers": true,
+        "min_points_per_cycle": 10,
+        "docx_name": "monthly_3sigma_results_17",
+        "constant_flux": false,
+        "constant_flux_values": 5
+    },
+    "customize": {
+        "DCF": false,
+        "DCF_Plot": false,
+        "Jurkevich": false,
+        "JV_Plot": false,
+        "LSP": true,
+        "LSP_Plot": true,
+        "WWZ": true,
+        "WWZ_Plot": true,
+        "jv_params": {
+            "test_periods_start": 100,
+            "test_periods_end": 2200,
+            "test_periods_step": 10,
+            "m_bins": 2,
+            "plot_mode": "save"
+        },
+        "dcf_params": {
+            "delta_tau": 10,
+            "c": 31,
+            "max_tau": 2000,
+            "distance": 7,
+            "plot_mode": "save"
+        },
+        "beta_params": {
+            "beta_calculate": true,
+            "default_beta": 0.9,
+            "method": "psresp",
+            "beta_start": 0.05,
+            "beta_end": 2.0,
+            "beta_step": 0.05,
+            "M": 1000,
+            "n_jobs": -1,
+            "plot": true,
+            "n_bins": 7,
+            "plot_mode": "save"
+        },
+        "lsp_params": {
+            "lsp_mode": "lsp",
+            "divide_freq_step": 10,
+            "sig_threshold": 0.997,
+            "top_n": 3,
+            "MC": true,
+            "M": 10000,
+            "n_jobs": -1,
+            "plot_params": {
+                "plot_mode": "save",
+                "time_axis_mode": "ym",
+                "time_input_format": "jd"
+            }
+        },
+        "wwz_params": {
+            "c": 0.0125,
+            "p_start": 100.0,
+            "p_end": 3000.0,
+            "divide_freq_step": 10,
+            "tau_number": 1000,
+            "z_height": 20000,
+            "MC": false,
+            "M": 10000,
+            "n_jobs": -1,
+            "sig_threshold": 0.997,
+            "top_n": 3,
+            "plot_params": {
+                "plot_mode": "save",
+                "time_scale": "JD",
+                "peak_prominence": 3.0,
+                "use_log_scale_period": true
+            }
+        }
+    },
+    "source_overrides": {}
+}
