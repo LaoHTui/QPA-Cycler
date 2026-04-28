@@ -1,0 +1,4 @@
+# Example astronomical data - Julian dates, photon fluxes and errors
+2450000.123456 1.234500 0.012300
+2450001.234567 2.345600 0.023400
+2450002.345678 3.456700 0.034500
