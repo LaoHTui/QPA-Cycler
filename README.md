@@ -1,5 +1,6 @@
 # QPA-Cycler：多方法准周期分析自动化流水线
 
+[![License](https://img.shields.io/badge/license-AGPL--3.0-f37c20?style=flat-square)](LICENSE)
 **QPA-Cycler** (Quasi-Periodicity Analysis Cycler) 是一款专为时间序列数据（特别是天文光变曲线等**非均匀采样数据**）设计的自动化周期检测工具。它集成了多种经典的周期分析算法，实现了从数据预处理到自动化生成研究报告的全流程覆盖。
 
 ## 核心架构：自动化周期检测流程
